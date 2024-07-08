@@ -1,4 +1,4 @@
-** JavaScript Concepts
+## JavaScript Concepts
 
 - ECMAScript and its versions/features
 - DataTypes
