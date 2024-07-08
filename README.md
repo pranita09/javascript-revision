@@ -1,0 +1,49 @@
+** JavaScript Concepts
+
+- ECMAScript and its versions/features
+- DataTypes
+- Null vs undefined
+- Undefined vs Not defined
+- What is Class? How to define a class in javascript?
+- How to create an Object of an Class
+- Class inheritance
+- Prototypal Inheritance
+- How to add comments in javascript
+- Difference between const, let, var
+- What is Hoisting in Javascript
+- How many ways to concat strings
+- Ternary Operator
+- Event Loop - microtasks and macrotasks
+- Event Bubbling and Capturing
+- Functions
+  - Arrow function vs normal function
+  - Return type of a function
+  - How to call a function
+  - Function parameters
+  - Default parameters in Functions
+  - Named function vs Anonymous function
+  - Immediate Functions
+  - Higher-order-function
+  - Callback function
+  - SetTimeout & setInterval
+  - Async vs Sync functions
+- What is scope?
+- Array:
+  - How to create an array?
+  - How many ways to access array values?
+  - How to add value?
+  - How to Remove value?
+  - Ways to loop over an array?
+  - Reduce, Map, Filter, foreach
+  - Sorting of array
+  - Arrays are mutable?
+  - Find, splice, slice, concate,
+- Regex & Validations
+- Promise & Async Await
+- Observer / Observable
+- Closures (How it works internally)
+- Rest / Spread / Object destructuring syntax
+- Optional chaining
+- Nullish coalescing operator
+- LocalStorage, Session storage and Cookies
+- Fetch API
