@@ -1,0 +1,116 @@
+<!-- Event capturing, also known as event trickling, is a phase in the event propagation process in JavaScript where the event starts from the root element and propagates down to the target element. 
+This is the opposite of event bubbling, where the event starts from the target element and propagates up to the root. -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Capturing Example</title>
+    <style>
+      #parent {
+        background-color: lightblue;
+        padding: 20px;
+      }
+      #child {
+        background-color: lightcoral;
+        padding: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="parent">
+      Parent Element
+      <div id="child">Child Element</div>
+    </div>
+
+    <script>
+      document.getElementById("parent").addEventListener(
+        "click",
+        function () {
+          alert("Parent clicked during capturing!");
+        },
+        true
+      ); // Enable capturing
+
+      document.getElementById("child").addEventListener("click", function () {
+        alert("Child clicked!");
+      });
+    </script>
+  </body>
+</html>
+
+<!-- Practical Example -->
+
+<!-- Validate a form's input fields before allowing the user to submit the form. -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Validation Example</title>
+    <style>
+      .form-field {
+        margin: 10px 0;
+      }
+      .error {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <form id="myForm">
+      <div class="form-field">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" />
+        <span class="error" id="usernameError"></span>
+      </div>
+      <div class="form-field">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" />
+        <span class="error" id="emailError"></span>
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+
+    <script>
+      document.getElementById("myForm").addEventListener(
+        "submit",
+        function (event) {
+          // Enable capturing phase
+          validateForm(event);
+        },
+        true
+      ); // Capture the event during the capturing phase
+
+      function validateForm(event) {
+        let isValid = true;
+
+        // Clear previous errors
+        document.getElementById("usernameError").innerText = "";
+        document.getElementById("emailError").innerText = "";
+
+        // Validate username
+        const username = document.getElementById("username").value;
+        if (username === "") {
+          document.getElementById("usernameError").innerText =
+            "Username is required";
+          isValid = false;
+        }
+
+        // Validate email
+        const email = document.getElementById("email").value;
+        if (email === "") {
+          document.getElementById("emailError").innerText = "Email is required";
+          isValid = false;
+        }
+
+        if (!isValid) {
+          // Prevent form submission
+          event.preventDefault();
+        }
+      }
+    </script>
+  </body>
+</html>
