@@ -1,0 +1,81 @@
+<!-- Event Bubbling is a concept in the DOM (Document Object Model).
+It happens when an element receives an event, and that event bubbles up (or you can say is transmitted or propagated) to its parent and ancestor elements in the DOM tree until it gets to the root element. -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Bubbling Example</title>
+    <style>
+      #parent {
+        background-color: lightblue;
+        padding: 20px;
+      }
+      #child {
+        background-color: lightcoral;
+        padding: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="parent">
+      Parent Element
+      <div id="child">Child Element</div>
+    </div>
+
+    <script>
+      document.getElementById("parent").addEventListener("click", function () {
+        alert("Parent clicked!");
+      });
+
+      document.getElementById("child").addEventListener("click", function () {
+        alert("Child clicked!");
+      });
+    </script>
+  </body>
+</html>
+
+<!-- Practical Example  -->
+
+<!-- Event delegation is a technique where you leverage event
+bubbling to handle events at a higher level in the DOM. This is especially
+useful when you have many child elements and you want to avoid attaching
+individual event handlers to each one. -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Delegation Example</title>
+    <style>
+      .container {
+        background-color: lightgray;
+        padding: 20px;
+      }
+      .item {
+        background-color: lightgreen;
+        margin: 10px;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="item">Item 1</div>
+      <div class="item">Item 2</div>
+      <div class="item">Item 3</div>
+    </div>
+
+    <script>
+      document
+        .querySelector(".container")
+        .addEventListener("click", function (event) {
+          if (event.target.classList.contains("item")) {
+            alert(event.target.innerText + " clicked!");
+          }
+        });
+    </script>
+  </body>
+</html>
